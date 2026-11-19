@@ -1146,7 +1146,7 @@ function ServiceDetailPage({ service }: { service: typeof services[number] }) {
     </>
   )
 }
-
+/*
 const buildingServices = [
   {
     number: "01",
@@ -1269,7 +1269,7 @@ function BuildingMaintenancePage() {
     </>
   )
 }
-
+*/
 const plans = [
   {
     name: "Plan A",
