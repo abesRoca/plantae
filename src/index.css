@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'DM Sans', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: 'DM Sans', sans-serif; }
+.font-display { font-family: 'DM Serif Display', Georgia, serif; }
+.logo-forest { filter: brightness(0) saturate(100%) invert(18%) sepia(31%) saturate(736%) hue-rotate(98deg) brightness(93%) contrast(93%); }
+::selection { background: #c5d9a6; color: #183c2f; }
+
+@keyframes hero-reveal {
+  from { opacity: 0.35; transform: scale(1.015); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.client-marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+}
+
+.client-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: client-marquee 58s linear infinite;
+  will-change: transform;
+}
+
+.client-marquee-group {
+  display: flex;
+  gap: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.client-marquee:hover .client-marquee-track,
+.client-marquee:focus-within .client-marquee-track {
+  animation-play-state: paused;
+}
+
+.client-logo {
+  filter: grayscale(1) sepia(0.45) hue-rotate(62deg) saturate(0.7) brightness(0.76);
+  mix-blend-mode: multiply;
+  opacity: 0.78;
+  transition: filter 500ms ease, opacity 500ms ease, transform 500ms ease;
+}
+
+.group:hover .client-logo {
+  filter: none;
+  opacity: 1;
+  transform: scale(1.03);
+}
+
+@keyframes client-marquee {
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .client-marquee {
+    overflow-x: auto;
+    mask-image: none;
+  }
+
+  .client-marquee-track {
+    animation: none;
+  }
+
+  .client-marquee-group[aria-hidden="true"] {
+    display: none;
+  }
+}
